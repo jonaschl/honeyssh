@@ -1,4 +1,4 @@
-FROM jonatanschlag/debian-jessie-armv7:latest
+FROM jonatanschlag/honeyssh-base:latest
 MAINTAINER jonatanschlag
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -6,9 +6,9 @@ ENV DEBIAN_FRONTEND noninteractive
 #RUN apt-get update -y && apt-get install -y -y mariadb-server
 
 #ADD my.cnf /etc/mysql/my.cnf
-ADD mysql.sh /tmp/mysql.sh
+ADD setup.sh /tmp/setup.sh
  
-RUN chmod +x /tmp/mysql.sh && /tmp/mysql.sh
+RUN chmod +x /tmp/setup.sh && /tmp/setup.sh
 ADD my.cnf /etc/mysql/my.cnf
 #RUN apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
