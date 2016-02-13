@@ -109,7 +109,7 @@ if [ "$backerrorlevel" = "0" ] ; then
       # the id is != empty
       patternrep="$username/${repo}"
       patterntag="new"
-      back=$(getid.sh $patternrep $patterntag)
+      back=$(getid $patternrep $patterntag)
       set $back
       id=$1
       backerrorlevel=$2
