@@ -1,0 +1,15 @@
+[Unit]
+Description=Honeyssh-Database
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=on-failure
+RestartSec=10
+ExecStartPre=-/usr/bin/docker stop honeyssh-mariadb
+ExecStartPre=-/usr/bin/docker rm honeyssh-mariadb
+ExecStart=/usr/bin/docker run -p 3306:3306 --name=honeyssh-mariadb --volumes-from honeyssh-mariadbdata jonatanschlag/honeyssh-mariadb:latest
+ExecStop=/usr/bin/docker stop honeyssh-mariadb
+
+[Install]
+WantedBy=multi-user.target
