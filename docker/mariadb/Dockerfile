@@ -13,7 +13,7 @@ ADD my.cnf /etc/mysql/my.cnf
 #RUN apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 # Define mountable directories.
-VOLUME ["/etc/mysql", "/var/lib/mysql"]
+#VOLUME ["/etc/mysql", "/var/lib/mysql"]
 
 # Define working directory.
 WORKDIR /data
