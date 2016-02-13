@@ -9,7 +9,7 @@ Restart=on-failure
 RestartSec=10
 ExecStartPre=-/usr/bin/docker stop honeyssh-pot
 ExecStartPre=-/usr/bin/docker rm honeyssh-pot
-ExecStart=/usr/bin/docker run -p 22:2222  --name=honeyssh-pot -v=/opt/securehoney/logs:/opt/securehoney/logs jonatanschlag/honeyssh-pot:latest
+ExecStart=/usr/bin/docker run -p 22:2222  --name=honeyssh-pot  --volumes-from honeyssh-potdata jonatanschlag/honeyssh-pot:latest
 ExecStop=/usr/bin/docker stop honeyssh-pot
 
 [Install]
